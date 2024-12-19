@@ -12,10 +12,16 @@ class ContactController extends Controller
         return view('index');
     }
 
-    //送信ボタンクリック時に行われる処理
+    //フォーム入力ページ送信ボタンクリック時に行われる処理
     public function confirm(Request $request)
     {
         $contact = $request->only(['name', 'email', 'tel', 'content']);
         return view('confirm', compact('contact'));
+    }
+
+    //入力内容確認ページの送信ボタンクリック時に行われる処理
+    public function store(Request $request)
+    {
+        $contact = $request->only(['name', 'email', 'tel', 'content']);
     }
 }
