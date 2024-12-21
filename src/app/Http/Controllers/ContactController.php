@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+//Contactモデルの追加
+use App\Models\Contact;
 
 class ContactController extends Controller
 {
@@ -23,5 +25,6 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $contact = $request->only(['name', 'email', 'tel', 'content']);
+        Contact::create($contact);
     }
 }
