@@ -25,6 +25,9 @@ class ContactController extends Controller
     public function store(Request $request)
     {
         $contact = $request->only(['name', 'email', 'tel', 'content']);
+        //保存処理
         Contact::create($contact);
+        //viewの呼び出し
+        return view('thanks');
     }
 }
